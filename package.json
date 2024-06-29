@@ -1,0 +1,20 @@
+{
+  "name": "cacback",
+  "version": "1.0.0",
+  "description": "Proyecto integrador Backend de Codo a Codo Javascript-NodeJS. Grupo 7",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch index.js"
+  
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.10.1",
+    "nodemon": "^3.1.4"
+  }
+}
