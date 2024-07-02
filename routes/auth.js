@@ -4,9 +4,10 @@ const userController = require('../controllers/userController.js')
 
 
 //ruta para usuario
-router.post("/usuario/registro", userController.createUser)
+router.post("/usuario", userController.createUser);
 router.get("/usuario/:id", userController.getUserById);
-router.post("/usuario/update/:id", userController.updateUser);
-router.post("/usuario/delete/:id", userController.deleteUser);
+router.get("/usuario", userController.getAllUsers);
+router.put("/usuario/:id", userController.updateUser);
+router.delete("/usuario/:id", userController.deleteUser);
 
 module.exports = router
