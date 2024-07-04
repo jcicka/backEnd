@@ -1,8 +1,14 @@
 const express = require('express');
 const rutas = require('./routes/auth')
 //const authRoutes = require(`./routes/authRoutes`);
-
+const cors = require('cors')
 const app = express();
+
+app.use(cors({
+    origin: 'http://127.0.0.1:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'x-access-token']
+}));
 
 app.use(express.json())
 
