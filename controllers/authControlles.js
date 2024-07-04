@@ -13,4 +13,15 @@ exports.register = (req, res) => {
     users.push(newUser)
 
     const token = jwt.sign({id: newUser.id}, config.secretKey, {expiresIn: config.tokenExpiresIn} )
+
+    res.status(201).send({auth: true, token})
+}
+
+exports.login = (req, res) => {
+    const {username, password} = req.body
+
+    const user = users.find(u => u.username === username)
+
+    if(!user) return res.status(404).send(`User not found`)
+        
 }
