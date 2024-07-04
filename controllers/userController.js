@@ -1,10 +1,13 @@
 const db = require('../db/db')
+const bcrypt = require('bcryptjs');
 
 //aca van todos los metodos de user
 const createUser = (req, res) => {
     //logica de BD para cargar el usuario...
     let sql = `INSERT INTO users(nombre, apellido, email, password, direccion, telefono) VALUES(?,?,?,?,?,?)` 
-    let data = [req.body.nombre, req.body.apellido, req.body.email, req.body.password, req.body.direccion, req.body.telefono]
+    const hashedPassword = bcrypt.hashSync(req.body.password, 8)
+    let data = [req.body.nombre, req.body.apellido, req.body.email, hashedPassword, req.body.direccion, req.body.telefono]
+
     db.query(sql, data, (err, results) => {
         if (err) {
             console.error('Error al crear el usuario:', err);

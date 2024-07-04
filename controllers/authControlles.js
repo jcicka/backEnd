@@ -1,6 +1,6 @@
 const jwt =  require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const users = require('../modules/userModels');
+const users = require('../models/userModels');
 const config = require('../config/config');
 
 exports.register = (req, res) => {
@@ -18,10 +18,18 @@ exports.register = (req, res) => {
 }
 
 exports.login = (req, res) => {
-    const {username, password} = req.body
+    const {username, password} = req.body;
 
-    const user = users.find(u => u.username === username)
+    const user = users.find(u => u.username === username);
 
-    if(!user) return res.status(404).send(`User not found`)
-        
+    if(!user) return res.status(404).send(`User not found`);
+
+    const passwordIsValid = bcrypt.compareSync(password, user.password);
+
+    if(!passwordIsValid) return res.status(401).send({ auth: false, token: null });
+
+    const token = jwt.sign({id: user.id}, config.secretKey, {expiresIn: config.tokenExpiresIn} );
+
+    res.status(200).send({auth: true, token});
+
 }
