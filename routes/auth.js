@@ -12,7 +12,7 @@ router.get("/usuario", userController.getAllUsers);
 router.put("/usuario/:id", userController.updateUser);
 router.delete("/usuario/:id", userController.deleteUser);
 
-router.post("/productos", prodController.createProd);
+router.post("/producto", prodController.createProd);
 router.get("/productos/:id", prodController.getProdById);
 router.get("/productos", prodController.getAllProducts);
 router.put("/productos/:id", prodController.updateProd);
