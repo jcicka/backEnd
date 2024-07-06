@@ -15,8 +15,6 @@ const createProd = (req, res) => {
         }
         res.json({ status: 200, message: 'Producto created', userId: results.insertId});
     });
-
-    
 }
 
 const updateProd = (req, res) => {
