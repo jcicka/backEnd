@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-07-2024 a las 21:34:39
+-- Tiempo de generación: 07-07-2024 a las 22:59:41
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -41,12 +41,12 @@ CREATE TABLE `item_pedido` (
 --
 
 INSERT INTO `item_pedido` (`id_item_pedido`, `id_pedido`, `id_producto`, `cantidad`, `precio_unit`, `subtotal`) VALUES
-(1, 2, 1, 1, 0, 0),
-(2, 2, 2, 1, 0, 0),
 (3, 3, 2, 1, 0, 3254),
 (4, 3, 3, 1, 0, 3254.21),
 (5, 4, 2, 1, 254.36, 3254.4),
-(6, 4, 3, 1, 2354.32, 3254.21);
+(6, 4, 3, 1, 2354.32, 3254.21),
+(7, 5, 1, 2, 2500.36, 5000.72),
+(8, 5, 3, 3, 2300, 6900);
 
 -- --------------------------------------------------------
 
@@ -66,10 +66,9 @@ CREATE TABLE `pedido` (
 --
 
 INSERT INTO `pedido` (`id_pedido`, `id_usuario`, `fecha`, `total`) VALUES
-(1, 1, '06/07/2024', 2354),
-(2, 1, '06/07/2024', 2354),
 (3, 1, '06/07/2024', 2354),
-(4, 1, '06/07/2024', 2354);
+(4, 1, '06/07/2024', 2354),
+(5, 5, '07/07/2024', 11901);
 
 -- --------------------------------------------------------
 
@@ -133,7 +132,9 @@ INSERT INTO `users` (`id_user`, `nombre`, `apellido`, `email`, `password`, `dire
 -- Indices de la tabla `item_pedido`
 --
 ALTER TABLE `item_pedido`
-  ADD PRIMARY KEY (`id_item_pedido`);
+  ADD PRIMARY KEY (`id_item_pedido`),
+  ADD KEY `id_producto` (`id_producto`),
+  ADD KEY `id_pedido` (`id_pedido`);
 
 --
 -- Indices de la tabla `pedido`
@@ -163,13 +164,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `item_pedido`
 --
 ALTER TABLE `item_pedido`
-  MODIFY `id_item_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_item_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -182,6 +183,23 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `users`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `item_pedido`
+--
+ALTER TABLE `item_pedido`
+  ADD CONSTRAINT `item_pedido_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `item_pedido_ibfk_2` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
