@@ -28,10 +28,10 @@ const createPedido = (req, res) => {
                     return res.status(500).json({ message: 'Error interno del servidor al crear los ítems del pedido', error: err });
                 }
   
-                res.status(201).json({ message: 'Items creado correctamente', results });
+                res.status(201).json({ message: 'Items creado correctamente'});
             });
         } else {
-            res.status(201).json({ message: 'Pedido creado correctamente', result });
+            res.status(201).json({ message: 'Pedido creado correctamente'});
       }
 
     });
@@ -54,21 +54,58 @@ const updatePedido = (req, res) => {
 }
     */
 
-const deletePedido = (req, res) =>{
-    let {id} = req.params;
-    let sql = `DELETE FROM productos WHERE id_producto = ?`
-    db.query(sql, [id], (err, result)=>{
-        if(err) throw err;
-        if(result.affectedRows === 0) return res.status(404).send('Producto no encontrado');
-        res.json({message:'Producto eliminado con exito'});
-    })
+const deletePedidoById = (req, res) =>{
+    const id_p = req.params.id; // ID del pedido desde los parámetros de la URL
+
+  // Comienza la transacción para eliminar el pedido y sus ítems de manera segura
+  db.beginTransaction(function(err) {
+    if (err) {
+      console.error('Error al iniciar la transacción:', err);
+      return res.status(500).json({ message: 'Error al iniciar la transacción', error: err });
+    }
+
+    // Consulta para eliminar los ítems del pedido
+    const deleteItemsQuery = `DELETE FROM item_pedido WHERE id_pedido = ?`;
+    db.query(deleteItemsQuery, [id_p], function(err, results) {
+      if (err) {
+        db.rollback(function() {
+          console.error('Error al eliminar los ítems del pedido:', err);
+          return res.status(500).json({ message: 'Error al eliminar los ítems del pedido', error: err });
+        });
+      }
+
+      // Consulta para eliminar el pedido
+      const deletePedidoQuery = `DELETE FROM pedido WHERE id_pedido = ?`;
+      db.query(deletePedidoQuery, [id_p], function(err, results) {
+        if (err) {
+          db.rollback(function() {
+            console.error('Error al eliminar el pedido:', err);
+            return res.status(500).json({ message: 'Error al eliminar el pedido', error: err });
+          });
+        }
+
+        // Commit de la transacción si todas las consultas fueron exitosas
+        db.commit(function(err) {
+          if (err) {
+            db.rollback(function() {
+              console.error('Error al hacer commit de la transacción:', err);
+              return res.status(500).json({ message: 'Error al hacer commit de la transacción', error: err });
+            });
+          }
+
+          console.log('Pedido eliminado correctamente.');
+          res.status(200).json({ message: 'Pedido eliminado correctamente.' });
+        });
+      });
+    });
+  });
 }
 
 const getPedidoById = (req, res) =>{
     const id_p = req.params.id; // ID del pedido desde los parámetros de la URL
 
   // Consulta SQL usando JOIN para obtener el pedido y sus ítems
-  const query = `SELECT p.fecha, p.id_pedido, p.id_usuario, ip.id_producto, ip.cantidad, ip.subtotal
+  const query = `SELECT p.fecha, p.id_pedido, p.id_usuario, p.total, ip.id_producto, ip.cantidad, ip.precio_unit, ip.subtotal
     FROM pedido p
     LEFT JOIN item_pedido ip ON p.id_pedido = ip.id_pedido
     WHERE p.id_pedido = ?`;
@@ -95,8 +132,9 @@ const getPedidoById = (req, res) =>{
     // Iterar sobre los resultados para agregar los ítems al pedido
     results.forEach(row => {
         pedido.items.push({
-                            id_item: row.id_item,
+                            id_producto: row.id_producto,
                             cantidad: row.cantidad,
+                            precio_unit: row.precio_unit, 
                             subtotal: row.subtotal
         });
         //console.log('items', row);
@@ -164,6 +202,6 @@ const getAllPedidos = (req, res) =>{
 module.exports = {
     createPedido, 
     getPedidoById, 
-    deletePedido,
+    deletePedidoById,
     getAllPedidos
 }
