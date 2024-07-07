@@ -39,6 +39,7 @@ const createPedido = (req, res) => {
     
 }
 
+/* no se van a realizar modificaciones de pedidos por ahora
 const updatePedido = (req, res) => {
     const {id} = req.params;
     const {id_usuario, fecha, total} = req.body;
@@ -51,6 +52,7 @@ const updatePedido = (req, res) => {
     });
 
 }
+    */
 
 const deletePedido = (req, res) =>{
     let {id} = req.params;
@@ -63,26 +65,104 @@ const deletePedido = (req, res) =>{
 }
 
 const getPedidoById = (req, res) =>{
-    let {id} = req.params;
-    let sql = `SELECT * FROM productos WHERE id_producto = ?`
-    db.query(sql, [id], (err, result)=>{
-        if(err) throw err;
-        if(result.length === 0) return res.status(404).send('Producto no encontrado');
-        res.json(result);
-    })
+    const id_p = req.params.id; // ID del pedido desde los parámetros de la URL
+
+  // Consulta SQL usando JOIN para obtener el pedido y sus ítems
+  const query = `SELECT p.fecha, p.id_pedido, p.id_usuario, ip.id_producto, ip.cantidad, ip.subtotal
+    FROM pedido p
+    LEFT JOIN item_pedido ip ON p.id_pedido = ip.id_pedido
+    WHERE p.id_pedido = ?`;
+
+  db.query(query, [id_p], (error, results) => {
+    if (error) {
+      console.error('Error al obtener el pedido por ID:', error);
+      return res.status(500).json({ message: 'Error interno del servidor al obtener el pedido por ID', error: error });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Pedido no encontrado' });
+    }
+    
+    // Estructura de datos para almacenar el resultado final (pedido con sus ítems)
+    const pedido = {
+      id_pedido: results[0].id_pedido,
+      id_usuario: results[0].id_usuario,
+      fecha: results[0].fecha,
+      total: results[0].total,
+      items: [] // Array para almacenar los ítems del pedido
+    };
+
+    // Iterar sobre los resultados para agregar los ítems al pedido
+    results.forEach(row => {
+        pedido.items.push({
+                            id_item: row.id_item,
+                            cantidad: row.cantidad,
+                            subtotal: row.subtotal
+        });
+        //console.log('items', row);
+    });
+
+    res.status(200).json(pedido);
+  });
 }
 
 const getAllPedidos = (req, res) =>{
-    const sql = `SELECT nombre, descripcion, precio, stock, categoria, ambientacion, estacion FROM productos`;
-    db.query(sql, (err, results) =>{
-        if(err) throw err;
-        res.json(results);
+    const query = `
+    SELECT p.id_pedido, p.id_usuario, p.fecha, p.total, ip.id_producto, ip.cantidad, ip.precio_unit, ip.subtotal
+    FROM pedido p
+    LEFT JOIN item_pedido ip ON p.id_pedido = ip.id_pedido`;
+
+  db.query(query, (error, results) => {
+    if (error) {
+      console.error('Error al obtener los pedidos:', error);
+      return res.status(500).json({ message: 'Error interno del servidor al obtener los pedidos', error: error });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'No se encontraron pedidos' });
+    }
+
+    // Objeto para almacenar todos los pedidos con sus ítems
+    const pedidos = [];
+
+    // Map para agrupar los resultados por id_pedido
+    const pedidosMap = new Map();
+
+    results.forEach(row => {
+      const { id_pedido, id_usuario, fecha, total, id_item, id_producto, cantidad, precio_unit, subtotal } = row;
+
+      if (!pedidosMap.has(id_pedido)) {
+        // Si es la primera vez que encontramos este id_pedido, creamos un nuevo objeto de pedido
+        pedidosMap.set(id_pedido, {
+          id_pedido,
+          id_usuario,
+          fecha,
+          total,
+          items: []
+        });
+      }
+
+      // Agregamos el ítem al pedido correspondiente
+      pedidosMap.get(id_pedido).items.push({
+        id_item,
+        id_producto,
+        cantidad,
+        precio_unit,
+        subtotal
+      });
     });
+
+    // Convertimos el mapa en un array de pedidos
+    pedidosMap.forEach(value => {
+      pedidos.push(value);
+    });
+
+    res.status(200).json(pedidos);
+  });
 }
 
 module.exports = {
     createPedido, 
-    updatePedido, 
     getPedidoById, 
     deletePedido,
     getAllPedidos
