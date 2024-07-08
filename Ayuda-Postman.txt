@@ -17,3 +17,21 @@ ejemplo de alta de pedido
         "subtotal": 3254.21
     }]
 }
+
+para el registro del  Usuario
+
+{
+    "nombre":"Manuel", 
+    "apellido":"Sanchez", 
+    "email":"manuzanchez@gmail.com", 
+    "password":"5555", 
+    "direccion":"por ahora no importa", 
+    "telefono": "3644222222"
+}
+
+para el login
+
+{
+    "email":"manuzanchez@gmail.com", 
+    "password":"5555"
+}

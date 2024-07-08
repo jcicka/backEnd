@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-07-2024 a las 22:59:41
+-- Tiempo de generación: 08-07-2024 a las 02:52:12
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -107,7 +107,7 @@ CREATE TABLE `users` (
   `nombre` varchar(150) DEFAULT NULL,
   `apellido` varchar(150) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
-  `password` varchar(30) DEFAULT NULL,
+  `password` varchar(250) DEFAULT NULL,
   `direccion` varchar(150) DEFAULT NULL,
   `telefono` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -122,7 +122,9 @@ INSERT INTO `users` (`id_user`, `nombre`, `apellido`, `email`, `password`, `dire
 (5, 'Jorge', 'caballero', 'jorge@gmail.com', '$2a$08$Bz7xIalBbm5Mq/GkZPwWsu3', 'calle cangallo', '3644422333'),
 (6, NULL, NULL, NULL, '$2a$08$hIxeTLJHDJdYefAuyssBBeA', NULL, NULL),
 (7, 'Mario', NULL, NULL, '$2a$08$kbr65dikeAVKgisSozY70eN', NULL, NULL),
-(8, 'Miguel', NULL, NULL, '$2a$08$bvQadsVPZsWBOSAWQwsocOG', NULL, NULL);
+(8, 'Miguel', NULL, NULL, '$2a$08$bvQadsVPZsWBOSAWQwsocOG', NULL, NULL),
+(9, 'Manuel', 'Sanchez', 'manuzanchez@gmail.com', '$2a$08$zbu/07Lj7RbizIz4zXyQO.C', 'por ahora no importa', '3644222222'),
+(10, 'Manuel1', 'Sanchez', 'manu@gmail.com', '$2a$08$02Pzf3m0av7Xhz5zTQyaNuJVpFuM3lhFsAcJbQ1Y4tXmWCNBLiV/y', 'por ahora no importa', '3644222222');
 
 --
 -- Índices para tablas volcadas
@@ -154,6 +156,7 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `email` (`email`) USING BTREE,
   ADD KEY `nombre` (`nombre`);
 
 --
@@ -182,7 +185,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restricciones para tablas volcadas
