@@ -61,10 +61,7 @@ exports.login = (req, res) => {
 
     // Comparar la contraseña ingresada con la almacenada en la base de datos
     const user = results[0];
-    const hashed = bcrypt.hashSync(password, 8);
-    console.log('usuario: ', user, hashed);
     const passwordIsValid = bcrypt.compareSync(password, user.password);
-    console.log('validacion del password: ', passwordIsValid)
     if (!passwordIsValid) {
       return res
         .status(401)
