@@ -166,8 +166,8 @@ const getAllPedidos = (req, res) =>{
     // Map para agrupar los resultados por id_pedido
     const pedidosMap = new Map();
 
-    results.forEach(row => {
-      const { id_pedido, id_usuario, fecha, total, id_item, id_producto, cantidad, precio_unit, subtotal } = row;
+    results.forEach(pedido=> {
+      const { id_pedido, id_usuario, fecha, total, id_item, id_producto, cantidad, precio_unit, subtotal } = pedido;
 
       if (!pedidosMap.has(id_pedido)) {
         // Si es la primera vez que encontramos este id_pedido, creamos un nuevo objeto de pedido

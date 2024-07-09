@@ -16,9 +16,9 @@ exports.register = (req, res) => {
     insertUserQuery,
     [nombre, apellido, email, hashedPassword, direccion, telefono],
     (err, result) => {
-      console.log("resultado del nuevo usuario", result);
+      //console.log("resultado del nuevo usuario", result);
       if (err) {
-        console.error("Error al registrar el usuario:", err);
+        //console.error("Error al registrar el usuario:", err);
         return res.status(500).send(err.message);
       }
 
@@ -50,7 +50,7 @@ exports.login = (req, res) => {
   const getUserQuery = "SELECT * FROM users WHERE email = ?";
   db.query(getUserQuery, [email], (err, results) => {
     if (err) {
-      console.error("Error al buscar el usuario:", err);
+      console.error("Error al buscar el email:", err);
       return res.status(500).send("Error interno del servidor");
     }
 
