@@ -1,0 +1,37 @@
+ejemplo de alta de pedido
+
+{
+   "id_usuario": "1",
+   "fecha": "06/07/2024",
+   "total": 2354.25,
+    "items": [{
+        "id_producto": 2,
+        "cantidad": 1, 
+        "precio_unit": 254.36, 
+        "subtotal": 3254.4
+    },
+    {
+        "id_producto": 3,
+        "cantidad": 1, 
+        "precio_unit": 2354.32, 
+        "subtotal": 3254.21
+    }]
+}
+
+para el registro del  Usuario
+
+{
+    "nombre":"Manuel", 
+    "apellido":"Sanchez", 
+    "email":"manuzanchez@gmail.com", 
+    "password":"5555", 
+    "direccion":"por ahora no importa", 
+    "telefono": "3644222222"
+}
+
+para el login
+
+{
+    "email":"manuzanchez@gmail.com", 
+    "password":"5555"
+}
