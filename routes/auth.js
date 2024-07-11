@@ -3,7 +3,7 @@ const router = express.Router()
 const userController = require('../controllers/userController.js')
 const prodController = require('../controllers/prodController.js')
 const pedidosController = require('../controllers/pedidosController.js')
-const authController = require('../controllers/authControlles.js')
+const authController = require('../controllers/authControllers.js')
 
 // ruta para usuario que se usara por el administrador en caso de algun problema
 router.post('/usuario', userController.createUser)

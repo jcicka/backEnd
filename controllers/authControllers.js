@@ -26,12 +26,12 @@ exports.register = (req, res) => {
       const userId = result.insertId;
 
       // Generar token JWT
-      const token = jwt.sign({ id: userId }, config.secretKey, {
+      const token = jwt.sign({ id: userId  }, config.secretKey, {
         expiresIn: config.tokenExpiresIn,
       });
 
       // Devolver respuesta exitosa con el token
-      res.status(201).send({ auth: true, token });
+      res.status(201).send({ auth: true, token,nombre,apellido});
     }
   );
 };
@@ -68,12 +68,14 @@ exports.login = (req, res) => {
         .json({ auth: false, token: null, message: "Contraseña incorrecta" });
     }
 
+
     // Generar token JWT
     const token = jwt.sign({ id: user.id }, config.secretKey, {
       expiresIn: config.tokenExpiresIn,
     });
 
     // Devolver respuesta exitosa con el token
-    res.status(200).json({ auth: true, token });
+    res.status(200).json({ user:user, auth: true, token });
+
   });
 };
