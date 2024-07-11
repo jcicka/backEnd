@@ -1,0 +1,135 @@
+
+/* VARIABLES DE LA GAMA DE COLORES DEL SITIO */
+:root {
+    --green-50: #F0FAF6;
+    --green-100: #E1F4EE;
+    --green-200: #C2EADC;
+    --green-300: #A4DFCB;
+    --green-400: #86D5B9;
+    --green-500: rgba(102, 202, 167, 0.73);
+    --green-600: #3FB68C;
+    --green-700: #2F8869;
+    --green-800: #205B46;
+    --green-900: #102D23;
+    --green-950: #081712;
+}
+
+
+@media only screen and (max-width: 990px) {
+    #encabezado {
+        position: relative;
+        background-color: var(--green-600);
+    }
+
+    .logo {
+        display: none;
+        width: 6rem;
+    }
+
+    .menu {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: aquamarine;
+        padding: 20px;
+        transform: translate(260px, 70px);
+        opacity: 0;
+        transition: 1s;
+        border-radius: 15px 0 15px 15px;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .7);
+
+    }
+
+    /* AGREGA LA CLASE ACTIVE AL MENU PARA CELULARES */
+    .active {
+        display: flex;
+        transform: translateY(70px);
+        opacity: 1;
+        transition: 1s;
+    }
+
+    .menu_icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px;
+        font-size: 2.6rem;
+        color: #cccccc;
+        z-index: 1;
+    }
+
+    .icon {
+        margin: 0 20px;
+    }
+
+    .cerrar {
+        font-size: 3rem
+    }
+
+    .menu_items {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .item a {
+        font-size: 1.3rem;
+        text-decoration: none;
+        color: var(--green-950);
+    }
+
+    .item a:hover {
+        color: var(--green-100);
+    }
+
+    .item:hover .icon {
+        transform: scale(1.4);
+        transition: 0.3s;
+    }
+
+
+}
+@media only screen and (min-width: 991px){
+    #encabezado {
+        width: 100%;
+        background-color: var(--green-500);
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
+
+    #encabezado .menu_icon {
+        display: none;
+    }
+
+    #encabezado .menu {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #encabezado .menu .menu_logo .logo {
+        width: 80px;
+        height: 80px;
+        margin-left: 30px;
+    }
+
+    #encabezado .menu_items {
+        display: flex;
+        gap: 30px;
+        font-size: 1.6rem;
+        margin-right: 30px;
+    }
+
+    #encabezado .menu_items .icon {
+        margin-right: 10px;
+    }
+
+}

@@ -1,0 +1,13 @@
+#contenedor-herramientas #galeria .card .card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#contenedor-herramientas #galeria .card .card-body .card-title{
+    height: 36px;
+}
+#contenedor-herramientas #galeria .card .card-body .card-text{
+    height: 130px;
+    /*flex: 1;*/
+}

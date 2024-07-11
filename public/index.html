@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivero La Quinta</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="shortcut icon" href="./img/icomo.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/e190075d06.js" crossorigin="anonymous"></script>
+    <script defer src="./js/menu.js"></script>
+</head>
+<body>
+<div class="container">
+    <!--    <div class="oferta">-->
+    <!--        <p class="desc">¡NO TE PIERDAS ESTAS INCREIBLES OFERTAS!</p>-->
+    <!--    </div>-->
+
+    <header id="encabezado">
+        <i class="menu_icon fa-solid fa-bars"></i>
+        <nav id="menu_nav" class="menu">
+            <div class="menu_logo">
+                <a href="./index.html"> <img class="logo" src="./img/logo_vivero.png" alt=""></a>
+            </div>
+            <ul class="menu_items">
+                <li class="item"><a href="./index.html"><i class="icon fa-solid fa-house-chimney"></i> Inicio</a></li>
+                <li class="item"><a href="./herramientas.html"><i class="icon fa-solid fa-trowel"></i>Herramientas</a></li>
+                <li class="item"><a href="./contacto.html"><i class="icon fa-solid fa-user-group"></i>Contacto</a></li>
+                <li class="item"><a href="./login.html"><i class="icon fa-solid fa-user-check"></i>Iniciar sesión</a></li>
+                <li class="item"><a href="./registro.html"><i class="icon fa-solid fa-user-plus"></i>Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="portada">
+        <img
+                id="banner"
+                src="./img/fondo-plantas-tropicales-banner-variedad-flores-hojas-tropicale.jpg"
+                alt="Banner"
+                width="100%"
+                height="400"
+        />
+        <h1 id="titulo">Vivero La Quinta</h1>
+    </section>
+
+    <h2 id="subtitulo" class="subtitulo">Servicios de Paisagismo</h2>
+
+    <section id="destacados">
+        <!--<h2>titulo2</h2>-->
+        <article class="producto card">
+            <h2>Decoraciones Unicas en Albercas</h2>
+            <img src="./img/pileta.jpg" alt="pileta">
+            <div class="descripcion">
+                <h3 class="card-title">Pileta</h3>
+                <p>
+                    Creamos jardines únicos que cuentan historias a través de plantas,
+                </p>
+            </div>
+            <button class="btn_agregar">Ver detalle</button>
+        </article>
+
+        <article class="producto card">
+            <h2>Personalizacion de Parques y Jardines</h2>
+            <img src="./img/parque.jpg" alt="Parque">
+            <div class="descripcion">
+                <h3 class="card-title">Parque</h3>
+                <p>
+                    Creamos jardines únicos que cuentan historias a través de plantas,
+                    estructuras y elementos decorativos, proporcionando experiencias
+                    sensoriales y educativas para nuestros clientes.
+                </p>
+            </div>
+            <button class="btn_agregar">Ver detalle</button>
+        </article>
+    </section>
+
+    <h2 id="sub-titulo" class="subtitulo">Galería de Plantas</h2>
+
+    <section id="galeria">
+<!--       GALERIA DE PLANTAS GENERADA DINAMICAMENTE-->
+    </section>
+
+    <footer id="piePagina">
+        <div id="direccion">
+            <h3>Dirección: Argentina</h3>
+        </div>
+        <div id="mapa">
+            <h3>Aquí nos encontramos</h3>
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1595.2578102241866!2d-60.48560780214791!3d-26.79201860219857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2sar!4v1715550502506!5m2!1ses!2sar"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        </div>
+        <div id="redes">
+            <ul>
+                <li><a href="https://www.instagram.com/" target="_blank">
+                    <ion-icon class="icono" name="logo-instagram"></ion-icon>
+                </a></li>
+                <li><a href="https://www.facebook.com/" target="_blank">
+                    <ion-icon class="icono" name="logo-facebook"></ion-icon>
+                </a></li>
+                <li><a href="https://www.linkedin.com/" target="_blank">
+                    <ion-icon class="icono" name="logo-linkedin"></ion-icon>
+                </a></li>
+            </ul>
+        </div>
+        <div>
+            <a href="#encabezado" id="arriba">
+                <ion-icon name="chevron-up-outline"></ion-icon>
+            </a>
+        </div>
+    </footer>
+</div>
+<!--Enlaces para utilizar iconos-->
+<script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/plantas.js"></script>
+</body>
+</html>

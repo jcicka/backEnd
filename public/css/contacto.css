@@ -1,0 +1,90 @@
+#contenedor-contacto {
+    z-index: 0;
+    position: relative;
+}
+#contenedor-contacto #contacto h2{
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+#contenedor-contacto #contacto .icon-contacto{
+    font-size: 3rem;
+    margin: 0 auto;
+    color: var(--green-50);
+}
+#contenedor-contacto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/background_contacto.jpg"), var(--green-500) top;
+    background-size: cover;
+    background-blend-mode: lighten;
+    filter: ;
+    z-index: -1;
+}
+form {
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(102, 202, 167, 0.8);
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+#registro input {
+    margin: 10px 0;
+    height: 40px;
+}
+
+.opcion_telefono {
+    width: 50%;
+    height: 50px;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid var(--green-700);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.animado {
+    width: 40px;
+    height: 40px;
+    margin: 0 30px;
+    animation-name: contactoAnimado;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+/*================Aplica animacion al icono en la pagina de Contacto=============*/
+@keyframes contactoAnimado {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+
+

@@ -1,0 +1,12 @@
+### Screenshot de las distintas Vistas Responsive
+
+### NOTEBOOK 1366PX
+![NOTEBOOK 1366PX](screenshot/notebook-1717472388536.jpeg)
+### NOTEBOOK 1366PC ESCRITORIO 1280PX
+![PCESCRITORIO](screenshot/PC.jpeg)
+### TABLET 990PX A 1200PX
+![TABLET](screenshot/TABLET-1717472435340.jpeg)
+### MOVILES Y TABLET PEQUEÑAS 768PX
+![MOVILYTABLET](screenshot/MOVILYTABLET.jpeg)
+### MOVILES MENORES A 576PX
+![MOVIL](screenshot/MOVIL.jpeg)

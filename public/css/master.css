@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sevillana&display=swap');
+
+/* VARIABLES DE LA GAMA DE COLORES DEL SITIO */
+
+:root {
+    --green-50: #F0FAF6;
+    --green-100: #E1F4EE;
+    --green-200: #C2EADC;
+    --green-300: #A4DFCB;
+    --green-400: #86D5B9;
+    --green-500: #66CAA7;
+    --green-600: rgba(63, 182, 140, 0.91);
+    --green-700: #2F8869;
+    --green-800: #205B46;
+    --green-900: #102D23;
+    --green-950: #081712;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /*Hace que la pagina se deslice suave*/
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+#conteiner {
+    display: flex;
+}
+
+
+#portada {
+    position: relative;
+}
+
+#banner {
+    z-index: 20;
+}
+
+.subtitulo {
+}
+
+#sub-titulo2 {
+    padding: 20px;
+    width: 90%;
+    text-align: center;
+    font-size: 2em;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: rgba(102, 202, 167, 1);
+}
+
+
+ul {
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+
+.producto__imagen {
+    border-radius: 8px;
+}
+
+#titulo {
+    position: absolute;
+    top: 60%;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    background-color: rgba(102, 202, 167, 0.8);
+    z-index: 101;
+}
+
+
+/* ============  CSS de la pagina Contacto  ================*/
+
+
+
+
+
+
+/*=====================================================================*/
+#galeria {
+    padding: 0;
+}
+
+
+
+#galeria article, #destacados article {
+    padding: 0;
+}
+
+.subtitulo, #sub-titulo2 {
+    box-shadow: 0 2px 6px darkgreen;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.subTgaleria {
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/*=================== CSS CORREPONDIENTE AL PIE DE PAGINA==============================*/
+#piePagina {
+    display: grid;
+    width: 100%;
+    background-color: rgba(16, 71, 52, 0.8);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: wheat;
+}
+
+#mapa {
+    margin-top: 20px;
+}
+
+#mapa iframe {
+    width: 100%;
+}
+
+#redes ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+ion-icon {
+    font-size: 30px;
+    color: white;
+}
+
+#destacados article img {
+    border-radius: 8px;
+    box-shadow: 0 0 7px 2px darkgreen;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.producto {
+    width: 100%;
+
+}
+
+.descripcion {
+    padding: 15px 0;
+    height: 70px;
+}
+
+/*==========detalle CORRESPONDE A LOS BOTONES Agregar DE LA PAGINA====================*/
+.btn_agregar {
+    color: white;
+    background-color: rgb(25, 135, 84);
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.btn_agregar:active {
+    box-shadow: 0 0 3px 2px forestgreen;
+    background-color: #cccccc;
+    color: darkgreen;
+}
+
+#sub-titulo2 {
+    margin-bottom: 20px;
+}
+
+.icon-contacto {
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.card {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card-title {
+    background-color: var(--green-100);
+    font-size: 1.1rem;
+    border-radius: 8px;
+    padding: 3px 0;
+}
+
+
+/* Estilos para pantallas de tablet (768px a 1023px de ancho) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Estilos específicos para pantallas de tablet */
+    #titulo {
+        position: absolute;
+        top: 50%;
+        padding: 30px;
+        width: 100%;
+        font-family: 'Sevillana', sans-serif;
+        text-align: center;
+        font-size: 2rem;
+        background-color: rgba(102, 202, 167, 0.8);
+        z-index: 101;
+    }
+
+    #destacados {
+        display: flex;
+    }
+
+    #destacados article {
+        padding: 1%;
+    }
+
+    #galeria img {
+        border-radius: 8px;
+        box-shadow: 0 0 5px 1px darkgreen;
+        transition: 0.3s;
+        margin-bottom: 10px;
+    }
+
+    #galeria img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 7px 2px darkgreen;
+        transition: 0.3s;
+    }
+
+    #galeria article {
+        width: 50%;
+        padding: 20px;
+    }
+
+    .subTgaleria {
+        margin-bottom: 10px;
+    }
+
+
+    #galeria {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 20px;
+    }
+
+    /*=============== Pie de Pagina ================*/
+    #piePagina {
+        display: grid;
+        width: 100%;
+        background-color: rgba(16, 71, 52, 0.8);
+        grid-template-columns: 1fr 2fr 1fr 0.3fr;
+        justify-content: center;
+        align-items: center;
+        color: wheat;
+    }
+
+    #mapa {
+        padding: 10px;
+    }
+
+    #mapa iframe {
+        width: 100%;
+    }
+
+    #map-google {
+        padding: 10px;
+    }
+
+    #redes ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    ion-icon {
+        font-size: 20px;
+        color: white;
+    }
+
+    #destacados article img {
+        border-radius: 8px;
+        box-shadow: 0 0 7px 2px darkgreen;
+        transition: 0.3s;
+    }
+
+
+    .descripcion {
+        padding: 15px 0;
+    }
+
+    .btn_agregar {
+        color: white;
+        background-color: rgb(25, 135, 84);
+        padding: 6px 12px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .btn_agregar:active {
+        box-shadow: 0 0 3px 2px forestgreen;
+        background-color: #cccccc;
+        color: darkgreen;
+    }
+
+    .icon-contacto {
+        width: 100%;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    #contacto h2 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .animado {
+        width: 40px;
+        height: 40px;
+        margin: 0 30px;
+        animation-name: contactoAnimado;
+        animation-play-state: running;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-duration: 1s;
+    }
+
+    @keyframes contactoAnimado {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.5);
+        }
+    }
+    .producto h2 {
+        height: 50px;
+    }
+
+}
+
+/* Estilos para pantallas de PC de escritorio (1024px en adelante) */
+@media only screen and (min-width: 1024px) {
+    /* Estilos específicos para pantallas de PC de escritorio */
+    #titulo {
+        position: absolute;
+        top: 50%;
+        padding: 30px;
+        width: 100%;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        font-size: 5rem;
+        background-color: rgba(102, 202, 167, 0.8);
+        z-index: 101;
+    }
+
+    .producto.card p {
+        font-family: 'Poppins', sans-serif;
+        text-align: left;
+        font-size: 0.9rem;
+        height: 80px;
+        background: -moz-linear-gradient(var(--green-50), var(--green-100));
+        padding: 0 20px 10px;
+        border-radius: 0 0 10px 10px;
+        border: none;
+        border-bottom: 1px solid var(--green-700);
+    }
+
+    #destacados {
+        display: flex;
+    }
+
+    #destacados article {
+        padding: 1%;
+    }
+
+
+    #galeria article {
+        width: 25%;
+        padding: 20px;
+    }
+
+    #galeria {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+
+    #galeria img {
+        border-radius: 8px;
+        box-shadow: 0 0 5px 1px darkgreen;
+        transition: 0.3s;
+    }
+
+    #galeria img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 7px 2px darkgreen;
+        transition: 0.3s;
+    }
+
+    .subTgaleria {
+        margin-bottom: 10px;
+    }
+
+
+
+    /*=============== Pie de Pagina ================*/
+    #piePagina {
+        display: grid;
+        width: 100%;
+        background-color: rgba(16, 71, 52, 0.8);
+        grid-template-columns: 1fr 2fr 1fr 0.3fr;
+        justify-content: center;
+        align-items: center;
+        color: wheat;
+    }
+
+    #mapa {
+        padding: 10px;
+    }
+
+    #mapa iframe {
+        width: 100%;
+    }
+
+    #map-google {
+        padding: 10px;
+    }
+
+    #redes ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+
+    #destacados article img {
+        border-radius: 8px;
+        box-shadow: 0 0 7px 2px darkgreen;
+        transition: 0.3s;
+    }
+
+    .descripcion {
+        padding: 15px 0;
+        height: 120px;
+    }
+
+
+    .btn_agregar {
+        color: white;
+        background-color: rgb(25, 135, 84);
+        padding: 6px 12px;
+        border-radius: 8px;
+    }
+
+    .btn_agregar:active {
+        box-shadow: 0 0 3px 2px forestgreen;
+        background-color: #cccccc;
+        color: darkgreen;
+    }
+    .producto.card{
+        position: relative;
+    }
+    .producto.card .btn_agregar {
+        position: absolute;
+        top: 15%;
+        left: 8%;
+        transform: translate(-50%,-50%) rotate(-45deg);
+        font-size: 1.2rem;
+    }
+    .producto.card .btn_agregar:hover{
+        box-shadow: 0 0 10px 3px var(--green-500);
+    }
+
+    .icon-contacto {
+        width: 100%;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    #contacto h2 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .animado {
+        width: 40px;
+        height: 40px;
+        margin: 0 30px;
+        animation-name: contactoAnimado;
+        animation-play-state: running;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-duration: 1s;
+    }
+
+    @keyframes contactoAnimado {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.5);
+        }
+    }
+
+
+
+    /*.oferta{*/
+    /*    position: absolute;*/
+    /*    width: 350px;*/
+    /*    height: 350px;*/
+    /*    top: -400px;*/
+    /*    left: 400px;*/
+    /*    z-index: 1010;*/
+    /*    background-image: url("../img/oferta.jpg");*/
+    /*    border: 2px solid yellow;*/
+    /*    border-radius: 50%;*/
+    /*    padding: 40px;*/
+    /*    background-color: #102D23;*/
+    /*    box-shadow: 0 0 50px 10px yellow;*/
+    /*    transition: 1s;*/
+    /*}*/
+    /*.active_oferta{*/
+    /*    opacity: 1;*/
+    /*    background-image: url("../img/oferta.jpg");*/
+    /*    top: 50%;*/
+    /*    left: 50%;*/
+    /*    transform: translate(-50%, -50%) rotate(1440deg);*/
+    /*    box-shadow: 0 0 50px 10px yellow;*/
+    /*    transition: 1s;*/
+    /*    font-family: sans-serif;*/
+    /*}*/
+    .desc {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-25deg);
+        font-size: 2rem;
+        color: yellow;
+        text-align: center;
+        animation-name: oferta;
+        animation-play-state: running;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-duration: 0.3s;
+        animation-direction: alternate;
+    }
+
+    /*@keyframes oferta {*/
+    /*    0%{*/
+    /*        transform: translate(-50%, -50%) rotate(-25deg) scale(1);*/
+    /*        -webkit-text-stroke: 1px;*/
+    /*        -webkit-text-stroke-color: #4caf50;*/
+    /*    }*/
+    /*    100%{*/
+    /*        transform: translate(-50%, -50%) rotate(-25deg) scale(1.8);*/
+    /*        text-shadow: 5px 5px 30px darkred;*/
+    /*        -webkit-text-stroke: 2px;*/
+    /*        -webkit-text-stroke-color: darkred;*/
+    /*    }*/
+    /*}*/
+}

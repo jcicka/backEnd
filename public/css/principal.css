@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* VARIABLES DE LA GAMA DE COLORES DEL SITIO */
+
+:root {
+    --green-50: #F0FAF6;
+    --green-100: #E1F4EE;
+    --green-200: #C2EADC;
+    --green-300: #A4DFCB;
+    --green-400: #86D5B9;
+    --green-500: #66CAA7;
+    --green-600: #3FB68C;
+    --green-700: #2F8869;
+    --green-800: #205B46;
+    --green-900: #102D23;
+    --green-950: #081712;
+}
+
+/*ESTILOS GENERALES DEL SITIO*/
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /*Hace que la pagina se deslice suave*/
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#portada {
+    position: relative;
+    z-index: 0;
+}
+
+#portada #titulo {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    background-color: var(--green-600);
+    padding: 10px 0;
+    font-family: "Kanit Light",sans-serif;
+}
+
+#portada #banner {
+    width: 100%;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+#portada #banner:hover {
+    opacity: 1;
+}
+
+.subtitulo {
+    font-family: "Kanit Light", sans-serif;
+    padding: 20px;
+    width: 90%;
+    text-align: center;
+    font-size: 2.6rem;
+    background-size: cover;
+    /*background: rgba(102, 202, 167, 1) url("/img/titulos.png") center;*/
+    background-color: rgba(102, 202, 167, 1);
+    background-blend-mode: screen;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    box-shadow: 0 2px 3px var(--green-800);
+}
+
+#destacados {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+#destacados .card {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#destacados .card h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    width: 90%;
+    height: 40px;
+    margin: 20px;
+    font-family: "Kanit Light", sans-serif;
+}
+#destacados .card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+#destacados .card .descripcion {
+    width: 100%;
+    height: 90px;
+}
+
+#destacados .card .descripcion .card-title {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 10px;
+    font-family: "Kanit Light", sans-serif;
+}
+#destacados .card .descripcion p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+#destacados .card .descripcion p:first-letter{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+#galeria {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#galeria .card {
+    padding: 10px;
+    width: 23%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#galeria .card img {
+    width: 90%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 1px darkgreen;
+    transition: 0.3s;
+    margin: 20px 0;
+}
+#galeria .card-title {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    text-align: center;
+    background-color: var(--green-100);
+    font-size: 1.1rem;
+    border-radius: 8px;
+    padding: 3px 0;
+}
+#galeria .card p{
+    height: 80px;
+    font-family: "Kanit Light", sans-serif;
+}
+
+#galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 7px 2px darkgreen;
+    transition: 0.3s;
+}
+
+
+/*=================== CSS CORREPONDIENTE AL PIE DE PAGINA==============================*/
+#piePagina {
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-columns:1fr 4fr 1fr 0.4fr;
+    grid-template-rows:200px;
+    background-color: rgba(16, 71, 52, 0.8);
+    margin: 10px 0 0 0;
+    text-align: center;
+    align-items: center;
+    color: wheat;
+}
+#piePagina #direccion h3{
+    font-size: 1.1rem;
+    text-align: center;
+}
+#piePagina #mapa{
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+}
+#piePagina #redes ul {
+    display: flex;
+    justify-content: space-around;
+}
+#piePagina #redes ul ion-icon {
+    font-size: 30px;
+    color: white;
+}
+#piePagina #redes .icono:hover {
+    transform: scale(1.3) rotate(360deg);
+    transition: 0.3s;
+}
+#piePagina #arriba ion-icon{
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+}
+.btn_agregar {
+    color: white;
+    background-color: rgb(25, 135, 84);
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+.btn_agregar:active {
+    box-shadow: 0 0 3px 2px forestgreen;
+    background-color: #cccccc;
+    color: darkgreen;
+}
+
+
+
+/***************MEDIAS QUERYS*/
+
+@media (max-width: 576px) {
+    .subtitulo {
+        width: 80%;
+    }
+
+    #destacados {
+        flex-direction: column;
+    }
+
+    #destacados .card {
+        width: 100%;
+    }
+
+    #galeria {
+        flex-direction: column;
+    }
+
+    #galeria .card {
+        width: 100%;
+    }
+
+    #piePagina {
+        grid-template-columns:1fr;
+        grid-template-rows:40px 200px 30px 20px;
+    }
+}
+
+/* Para teléfonos en modo paisaje y tablets pequeñas */
+@media (min-width: 577px) and (max-width: 768px) {
+    #destacados {
+        flex-direction: column;
+    }
+    #destacados .card {
+        width: 100%;
+    }
+    #galeria .card {
+        width: 100%;
+    }
+    #piePagina #redes ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #destacados .card .descripcion p{
+        text-align: center;
+    }
+    #galeria .card p{
+        height: 40px;
+        flex: 1;
+    }
+}
+
+/* Para tablets en modo retrato y pequeños monitores */
+@media (min-width: 769px) and (max-width: 992px) {
+    #galeria{
+        margin: 0;
+        flex-direction: row;
+    }
+    #galeria .card {
+        width: 47%;
+        justify-content: center;
+        align-items: center;
+    }
+    #galeria .card p{
+        height: 40px;
+        flex: 1;
+    }
+
+}
+
+/* Para tablets en modo paisaje y computadoras de escritorio pequeñas */
+@media (min-width: 993px) and (max-width: 1200px) {
+    #galeria .card p{
+        height: 120px;
+        flex: 1;
+    }
+}
+
+/* Para computadoras de escritorio y monitores grandes */
+@media (min-width: 1201px) {
+
+}

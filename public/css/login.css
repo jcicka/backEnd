@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding:
+     0;
+}
+
+@media only screen and (max-width: 767px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+    #tituloLogin {
+        width: 100%;
+        text-align: center;
+        font-size: 1.6em;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+
+        background-color: rgba(102, 202, 167, 1);
+    }
+    #tituloLogin h2{
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    form {
+        max-width: 500px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgba(102, 202, 167, 0.8);
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+
+    input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .error{
+        background-color: darkred;
+        border-radius: 6px;
+        color: white;
+        font-size: 20px;
+        margin: 10px 0;
+        padding: 10px 0;
+        text-align: center;
+    }
+    .error--exito{
+        background-color: darkgreen;
+    }
+
+}
