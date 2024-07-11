@@ -28,7 +28,7 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
     const {username, password} = req.body;
 
-    bd.query('SELECT * FROM Users WHERE nombre = ?', username, (err, result)=> {
+    bd.query('SELECT * FROM users WHERE nombre = ?', username, (err, result)=> {
         if (err) {
             return res.status(500).send({message: 'error en el servidor: login user', error: err});
           }
